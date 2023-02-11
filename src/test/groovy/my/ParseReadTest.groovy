@@ -34,17 +34,16 @@ class ParseReadTest {
         assertTrue(urls.size() > 0)   // 27
     }
 
+    /**
+     * make sure that in the har file contained a request
+     * of which url ends with "jquery.min.js"
+     */
     @Test void testIfJqueryJsIsRequested() {
         ReadContext ctx = JsonPath.parse(har.toFile())
-        Predicate predicate = new Predicate() {
-            boolean apply(PredicateContext context) {
-                String url = context.item(Map.class).get("url").toString();
-                return url.endsWith('jquery.min.js')
-            }
-        }
-        List<String> urls = ctx.read('$.log.entries[*].request', predicate)
-        println "urls.size()=${urls.size()}"
-        assertEquals(1, urls.size())
+        String path = '$.log.entries[?(@.request.url =~ /.*jquery\\.min\\.js/)]'
+        List<String> requests = ctx.read(path)
+        //println "requests.size()=${requests.size()}"
+        assertEquals(1, requests.size())
     }
 
 }
