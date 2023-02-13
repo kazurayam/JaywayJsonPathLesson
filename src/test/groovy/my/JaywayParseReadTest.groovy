@@ -12,7 +12,7 @@ import com.jayway.jsonpath.Predicate
 import com.jayway.jsonpath.Predicate.PredicateContext
 import com.jayway.jsonpath.ReadContext
 
-class ParseReadTest {
+class JaywayParseReadTest {
 
     Path har
 
