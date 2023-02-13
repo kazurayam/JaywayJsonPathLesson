@@ -10,11 +10,18 @@ repositories {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/io.burt/jmespath-core
+    testImplementation group: 'com.amazonaws', name: 'jmespath-java', version: '1.12.405'
+    testImplementation group: 'io.burt', name: 'jmespath', version: '0.5.1', ext: 'pom'
+    testImplementation group: 'io.burt', name: 'jmespath-jackson', version: '0.5.1'
+
     // https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path
-    implementation group: 'com.jayway.jsonpath', name: 'json-path', version: '2.7.0'
-    implementation 'org.apache.groovy:groovy:4.0.2'
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.6'
-    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.6'
+    testImplementation group: 'com.jayway.jsonpath', name: 'json-path', version: '2.7.0'
+    testImplementation 'org.apache.groovy:groovy:4.0.2'
+
+    testImplementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.6'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.6'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
